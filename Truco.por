@@ -9,134 +9,134 @@ programa {
   inteiro resultado
   inteiro sorteiomao
   inteiro cartadesejada1, cartadesejada2
-  inteiro pontuacaomaxima = 12, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0
+  inteiro pontuacaomaxima = 12, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0, maoplayer1 = 1, maoplayer2 = 0
   inteiro rodada = 1, mao = 1
   cadeia jogador1, jogador2
   funcao inicio() {
-  cartas[0] = "Ás de paus"
-  cartas[1] = "2 de paus"
-  cartas[2] = "3 de paus"
-  cartas[3] = "4 de paus"
-  cartas[4] = "5 de paus"
-  cartas[5] = "6 de paus"
-  cartas[6] = "7 de paus"
-  cartas[7] = "Valete de paus"
-  cartas[8] = "Cavalo de paus"
-  cartas[9] = "Rei de paus"
-  cartas[10] = "Ás de copas"
-  cartas[11] = "2 de copas"
-  cartas[12] = "3 de copas"
-  cartas[13] = "4 de copas"
-  cartas[14] = "5 de copas"
-  cartas[15] = "6 de copas"
-  cartas[16] = "7 de copas"
-  cartas[17] = "Valete de copas"
-  cartas[18] = "Cavalo de copas"
-  cartas[19] = "Rei de copas"
-  cartas[20] = "Ás de espadas"
-  cartas[21] = "2 de espadas"
-  cartas[22] = "3 de espadas"
-  cartas[23] = "4 de espadas"
-  cartas[24] = "5 de espadas"
-  cartas[25] = "6 de espadas"
-  cartas[26] = "7 de espadas"
-  cartas[27] = "Valete de espadas"
-  cartas[28] = "Cavalo de espadas"
-  cartas[29] = "Rei de espadas"
-  cartas[30] = "Ás de ouros"
-  cartas[31] = "2 de ouros"
-  cartas[32] = "3 de ouros"
-  cartas[33] = "4 de ouros"
-  cartas[34] = "5 de ouros"
-  cartas[35] = "6 de ouros"
-  cartas[36] = "7 de ouros"
-  cartas[37] = "Valete de ouros"
-  cartas[38] = "Cavalo de ouros"
-  cartas[39] = "Rei de ouros"
+    cartas[0] = "Ás de paus"
+    cartas[1] = "2 de paus"
+    cartas[2] = "3 de paus"
+    cartas[3] = "4 de paus"
+    cartas[4] = "5 de paus"
+    cartas[5] = "6 de paus"
+    cartas[6] = "7 de paus"
+    cartas[7] = "Valete de paus"
+    cartas[8] = "Cavalo de paus"
+    cartas[9] = "Rei de paus"
+    cartas[10] = "Ás de copas"
+    cartas[11] = "2 de copas"
+    cartas[12] = "3 de copas"
+    cartas[13] = "4 de copas"
+    cartas[14] = "5 de copas"
+    cartas[15] = "6 de copas"
+    cartas[16] = "7 de copas"
+    cartas[17] = "Valete de copas"
+    cartas[18] = "Cavalo de copas"
+    cartas[19] = "Rei de copas"
+    cartas[20] = "Ás de espadas"
+    cartas[21] = "2 de espadas"
+    cartas[22] = "3 de espadas"
+    cartas[23] = "4 de espadas"
+    cartas[24] = "5 de espadas"
+    cartas[25] = "6 de espadas"
+    cartas[26] = "7 de espadas"
+    cartas[27] = "Valete de espadas"
+    cartas[28] = "Cavalo de espadas"
+    cartas[29] = "Rei de espadas"
+    cartas[30] = "Ás de ouros"
+    cartas[31] = "2 de ouros"
+    cartas[32] = "3 de ouros"
+    cartas[33] = "4 de ouros"
+    cartas[34] = "5 de ouros"
+    cartas[35] = "6 de ouros"
+    cartas[36] = "7 de ouros"
+    cartas[37] = "Valete de ouros"
+    cartas[38] = "Cavalo de ouros"
+    cartas[39] = "Rei de ouros"
 
-  inteiro opcaomenu 
-  limpa ()
-   escreva ("¦¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+   ¦¦+ ¦¦¦¦¦¦+ ¦¦¦¦¦¦+                    \n+--¦¦+--+¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+----+¦¦+---¦¦+                   \n")
-  u.aguarde (1000)
-  escreva ("   ¦¦¦   ¦¦¦¦¦¦++¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦                   \n   ¦¦¦   ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦                   \n")
-  u.aguarde (1000)
-  escreva ("   ¦¦¦   ¦¦¦  ¦¦¦+¦¦¦¦¦¦+++¦¦¦¦¦¦++¦¦¦¦¦¦++                   \n   +-+   +-+  +-+ +-----+  +-----+ +-----+                    \n")
-  u.aguarde (1000)
-  escreva ("                                                              \n ¦¦¦¦¦¦+  ¦¦¦¦¦+ ¦¦+   ¦¦+¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+ ¦¦¦¦¦¦+ \n¦¦+----+ ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+--¦¦+¦¦+----+¦¦+--¦¦+¦¦¦¦¦+---¦¦+\n")
-  u.aguarde (500)
-  escreva ("¦¦¦  ¦¦¦+¦¦¦¦¦¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦¦¦¦+  ¦¦¦¦¦¦++¦¦¦¦¦¦   ¦¦¦\n¦¦¦   ¦¦¦¦¦+--¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦+--+  ¦¦+--¦¦+¦¦¦¦¦¦   ¦¦¦\n+¦¦¦¦¦¦++¦¦¦  ¦¦¦+¦¦¦¦¦¦++¦¦¦¦¦¦++¦¦¦¦¦¦¦+¦¦¦  ¦¦¦¦¦¦+¦¦¦¦¦¦++\n")
-  u.aguarde(500)
-  escreva (" +-----+ +-+  +-+ +-----+ +-----+ +------++-+  +-++-+ +-----+ \n                                                              \n")
-  u.aguarde (300)
+    inteiro opcaomenu // MENU DO JOGO
+    limpa ()
+    escreva ("¦¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+   ¦¦+ ¦¦¦¦¦¦+ ¦¦¦¦¦¦+                    \n+--¦¦+--+¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+----+¦¦+---¦¦+                   \n")
+    u.aguarde (1000)
+    escreva ("   ¦¦¦   ¦¦¦¦¦¦++¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦                   \n   ¦¦¦   ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦                   \n")
+    u.aguarde (1000)
+    escreva ("   ¦¦¦   ¦¦¦  ¦¦¦+¦¦¦¦¦¦+++¦¦¦¦¦¦++¦¦¦¦¦¦++                   \n   +-+   +-+  +-+ +-----+  +-----+ +-----+                    \n")
+    u.aguarde (1000)
+    escreva ("                                                              \n ¦¦¦¦¦¦+  ¦¦¦¦¦+ ¦¦+   ¦¦+¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+ ¦¦¦¦¦¦+ \n¦¦+----+ ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+--¦¦+¦¦+----+¦¦+--¦¦+¦¦¦¦¦+---¦¦+\n")
+    u.aguarde (500)
+    escreva ("¦¦¦  ¦¦¦+¦¦¦¦¦¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦¦¦¦+  ¦¦¦¦¦¦++¦¦¦¦¦¦   ¦¦¦\n¦¦¦   ¦¦¦¦¦+--¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦+--+  ¦¦+--¦¦+¦¦¦¦¦¦   ¦¦¦\n+¦¦¦¦¦¦++¦¦¦  ¦¦¦+¦¦¦¦¦¦++¦¦¦¦¦¦++¦¦¦¦¦¦¦+¦¦¦  ¦¦¦¦¦¦+¦¦¦¦¦¦++\n")
+    u.aguarde(500)
+    escreva (" +-----+ +-+  +-+ +-----+ +-----+ +------++-+  +-++-+ +-----+ \n                                                              \n")
+    u.aguarde (300)
 
+        
+    escreva ("Olá! ") u.aguarde(400) escreva ("Seja bem vindo ") u.aguarde(400) 
+    escreva ("ao truco gaudério! ") u.aguarde(700) escreva ("Pressione 1 para jogar! (Se estiver preparado)") 
+    u.aguarde(400) escreva ("\n0: Sair") u.aguarde(400) escreva ("\n1: Jogar\n") 
+    leia (opcaomenu)
+
+    escolha (opcaomenu) { //Leitura dos jogadores e gameplay
+      caso 1: 
+        escreva ("Insira o nome dos jogadores: \nJogador 1:\n")
+        leia (jogador1)
+        escreva ("\nJogador 2:\n")
+        leia (jogador2)
+        jogo () 
       
-  escreva ("Olá! ") u.aguarde(400) escreva ("Seja bem vindo ") u.aguarde(400) 
-  escreva ("ao truco gaudério! ") u.aguarde(700) escreva ("Pressione 1 para jogar! (Se estiver preparado)") 
-  u.aguarde(400) escreva ("\n0: Sair") u.aguarde(400) escreva ("\n1: Jogar\n") 
-  leia (opcaomenu)
-
-  escolha (opcaomenu) {
-    caso 1: 
-      escreva ("Insira o nome dos jogadores: \nJogador 1:\n")
-      leia (jogador1)
-      escreva ("\nJogador 2:\n")
-      leia (jogador2)
-      jogo () 
-    
-    pare
-    
-    caso 0:
-    escreva ("Muito obrigado! Esperaremos pelo seu retorno!")
-    pare
+      pare
+      
+      caso 0:
+        escreva ("Muito obrigado! Esperaremos pelo seu retorno!")
+      pare
     }
 
-   compare(confira, resultado)
+    compare(confira, resultado)
   }
-  funcao sorteio(){
+  funcao sorteio(){ //Sorteia cartas das mãos dos jogadores nas mãos
     para (inteiro i = 0; i < 6; i++){
       faca{
         aux = u.sorteia(0, 39)
-      }enquanto (aux == mao1[0] ou aux == mao1[1] ou aux == mao1[2] ou aux == mao2[0] ou aux == mao2[1] ou aux == mao2[2])
+      } enquanto (aux == mao1[0] ou aux == mao1[1] ou aux == mao1[2] ou aux == mao2[0] ou aux == mao2[1] ou aux == mao2[2])
 
       se (i<3){
         mao1[i] = aux
       } senao {
-        mao2[i - 3] = aux
-      }
+          mao2[i - 3] = aux
+        }
     }
   }
   
-  funcao inteiro valor(inteiro confira){
+  funcao inteiro valor(inteiro confira){ //Retorna valores das cartas
     se (confira == 0){
       retorne 39
-    }senao se (confira == 1 ou confira == 11 ou confira == 21 ou confira == 31){
-      retorne 36
-    }senao se (confira == 2 ou confira == 12 ou confira == 22 ou confira == 32 ou confira == 36){
-      retorne 37
-    }senao se (confira == 3 ou confira == 13 ou confira == 23 ou confira == 33){
-      retorne 28
-    }senao se (confira == 4 ou confira == 14 ou confira == 24 ou confira == 34){
-      retorne 29
-    }senao se (confira == 5 ou confira == 15 ou confira == 25 ou confira == 35){
-      retorne 30
-    }senao se (confira == 6 ou confira == 16){
-      retorne 31
-    }senao se (confira == 7 ou confira == 17 ou confira == 27 ou confira == 37){
-      retorne 32
-    }senao se (confira == 8 ou confira == 18 ou confira == 28 ou confira == 38){
-      retorne 33
-     }senao se (confira == 9 ou confira == 19 ou confira == 29 ou confira == 39){
-      retorne 34
-    }senao se (confira == 10 ou confira == 30){
-      retorne 35
-    }senao se (confira == 20){
-      retorne 40
-    }senao{
-      retorne 38
-    }
+    } senao se (confira == 1 ou confira == 11 ou confira == 21 ou confira == 31){
+        retorne 36
+      } senao se (confira == 2 ou confira == 12 ou confira == 22 ou confira == 32 ou confira == 36){
+          retorne 37
+        } senao se (confira == 3 ou confira == 13 ou confira == 23 ou confira == 33){
+            retorne 28
+          } senao se (confira == 4 ou confira == 14 ou confira == 24 ou confira == 34){
+              retorne 29
+            } senao se (confira == 5 ou confira == 15 ou confira == 25 ou confira == 35){
+                retorne 30
+              } senao se (confira == 6 ou confira == 16){
+                  retorne 31
+                } senao se (confira == 7 ou confira == 17 ou confira == 27 ou confira == 37){
+                    retorne 32
+                  } senao se (confira == 8 ou confira == 18 ou confira == 28 ou confira == 38){
+                      retorne 33
+                    } senao se (confira == 9 ou confira == 19 ou confira == 29 ou confira == 39){
+                        retorne 34
+                      } senao se (confira == 10 ou confira == 30){
+                          retorne 35
+                        } senao se (confira == 20){
+                            retorne 40
+                          } senao{
+                              retorne 38
+                            }
   }
 
-  funcao compare(inteiro cartadesejada1, inteiro cartadesejada2){
+  funcao compare(inteiro cartadesejada1, inteiro cartadesejada2){ //Compara valor das cartas na rodada
     confira = mao1[cartadesejada1-1]
     resultado = valor(confira)
     confira = mao2[cartadesejada2-1]
@@ -146,138 +146,62 @@ programa {
       pontuacaoArodada++
       rodada++
     } senao se(resultado == valor(confira)){
-      escreva("Empate\n")
-      u.aguarde (700)
-      rodada++
-    } senao{
-      escreva(jogador2, " ganhou a rodada!\n")
-      u.aguarde (700)
-      pontuacaoBrodada++
-      rodada++
-    }
+        escreva("Empate\n")
+        u.aguarde (700)
+        rodada++
+      } senao {
+          escreva(jogador2, " ganhou a rodada!\n")
+          u.aguarde (700)
+          pontuacaoBrodada++
+          rodada++
+        }
   }
-    funcao pontuacaomao () {
-
-    se (pontuacaoArodada==2 ou pontuacaoBrodada==2) {
+  funcao pontuacaomao () { //Compara pontuação das rodadas para coroar o vencedor da mão
+    se (pontuacaoArodada==2 ou pontuacaoBrodada==2) { 
       se (pontuacaoArodada>pontuacaoBrodada) {
         escreva (jogador1, " venceu a ", mao, "ª mão!!\n")
         u.aguarde (1000)
         pontuacaoA++
-        rodada=1
+        maoplayer2 = 0
+        maoplayer1 = 1
       } senao {
           escreva (jogador2, " venceu a ", mao, "ª mão!!\n")
           u.aguarde (1000)
           pontuacaoB++
-          rodada=1
-        }
-    }
-    mao++
-    pontuacaoArodada = 0
-    pontuacaoBrodada = 0
-    rodada=1
-
+          maoplayer1 = 0
+          maoplayer2 = 1
+        } 
+    } senao {
+        se (maoplayer1>maoplayer2) {
+          escreva (jogador1, " venceu a ", mao, "ª mão!!\n")
+          u.aguarde (1000)
+          pontuacaoA++ 
+          maoplayer2 = 0
+          maoplayer1 = 1
+        } senao {
+            escreva (jogador2, " venceu a ", mao, "ª mão!!\n")
+            u.aguarde (1000)
+            pontuacaoB++
+            maoplayer1 = 0
+            maoplayer2 = 1   
+          }
+      }
+      mao++
+      pontuacaoArodada = 0
+      pontuacaoBrodada = 0
+      rodada=1
   }
-
-
-  funcao jogo () {
-      faca {
-      se (mao%2!=0) {
-        sorteio()
-        escreva (mao1[0])
-          se (rodada==1) {
-            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-            escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-            leia (cartadesejada1)
-            
-            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-            escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-            escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
-            leia (cartadesejada2)
-
-            compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-          }
-
-            se (rodada==2) {
-              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-              escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-              leia (cartadesejada2)
-              
-              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-              escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-              escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
-              leia (cartadesejada1)
-
-              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-
-            }
-              se (pontuacaoArodada==2 ou pontuacaoBrodada==2) {
-                pontuacaomao ()
-              } senao {
-
-                  se (rodada==3) {
-                    maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-                    escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-                    leia (cartadesejada1)
-                  
-                    maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-                    escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-                    escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
-                    leia (cartadesejada2)
-
-                    compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-                  }
-                  pontuacaomao ()
-                }
-
+  funcao jogo () { // Jogo em si
+    player1comeca ()
+    faca {
+      se (maoplayer1>maoplayer2) {
+        player1comeca ()
       } senao {
-          se (rodada==1) {
-            sorteio()
-            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-            escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-            leia (cartadesejada2)
-            
-            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-            escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-            escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
-            leia (cartadesejada1)
-
-            compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-          }
-
-            se (rodada==2) {
-              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-              escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-              leia (cartadesejada1)
-              
-              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-              escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-              escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
-              leia (cartadesejada2)
-
-              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-
-            } se (pontuacaoArodada==2 ou pontuacaoBrodada==2) {
-                pontuacaomao ()
-              } senao {
-            
-                  se (rodada==3) {
-                    maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-                    escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
-                    leia (cartadesejada2)
-                  
-                    maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-                    escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
-                    escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
-                    leia (cartadesejada1)
-
-                    compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-                  }
-                  pontuacaomao ()
-                }
+          player2comeca ()
         }
     } enquanto (pontuacaoA<12 ou pontuacaoB<12)
   }
-  funcao maocartas (cadeia carta1, cadeia carta2, cadeia carta3) {
+  funcao maocartas (cadeia carta1, cadeia carta2, cadeia carta3) { //Design das cartas na mão do jogador
 
         escreva ("\n????????????????????????????????????????????????????????????????????????????????????????????????????\n")
         escreva ("????????????????????????????????????????????????????????????????????????????????????????????????????\n")
@@ -322,4 +246,94 @@ programa {
         escreva ("))))))))))))))#####********?????????????????????????????????????????????????????????????????????????    Pontuação ", jogador2, ": ", pontuacaoB, "\n")
 
   }
+
+  funcao player1comeca () { //Jogo caso o jogador 1 comece jogando a mão
+    sorteio ()
+    se (rodada==1) {
+            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+            escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+            leia (cartadesejada1)
+            
+            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+            escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+            escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
+            leia (cartadesejada2)
+
+            compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+          }
+            se (rodada==2) {
+              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+              escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+              leia (cartadesejada2)
+              
+              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+              escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+              escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
+              leia (cartadesejada1)
+
+              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+            }
+              se (pontuacaoArodada==2 ou pontuacaoBrodada==2) {
+                pontuacaomao ()
+              } senao {
+                  se (rodada==3) {
+                    maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+                    escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+                    leia (cartadesejada1)
+                  
+                    maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+                    escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+                    escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
+                    leia (cartadesejada2)
+
+                    compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+                    pontuacaomao ()
+                  }
+                }
+  }
+  funcao player2comeca () { //Jogo caso o jogador 2 comece jogando a mão
+    sorteio()
+    se (rodada==1) {
+            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+            escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+            leia (cartadesejada2)
+            
+            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+            escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+            escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
+            leia (cartadesejada1)
+
+            compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+          }
+            se (rodada==2) {
+              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+              escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+              leia (cartadesejada1)
+              
+              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+              escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+              escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
+              leia (cartadesejada2)
+
+              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+
+            } se (pontuacaoArodada==2 ou pontuacaoBrodada==2) {
+                pontuacaomao ()
+              } senao {
+                  se (rodada==3) {
+                    maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+                    escreva (jogador2, ", qual carta você deseja jogar? \n1: ", cartas[mao2[0]], " (", valor(mao2[0]), ")\n2: ", cartas[mao2[1]], " (", valor(mao2[1]), ")\n3: ", cartas[mao2[2]], "(", valor(mao2[2]), ")\n")
+                    leia (cartadesejada2)
+                  
+                    maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+                    escreva (jogador1, ", qual carta você deseja jogar? \n1: ", cartas[mao1[0]], " (", valor(mao1[0]), ")\n2: ", cartas[mao1[1]], " (", valor(mao1[1]), ")\n3: ", cartas[mao1[2]], " (", valor(mao1[2]), ")\n")
+                    escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
+                    leia (cartadesejada1)
+
+                    compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+                    pontuacaomao ()
+                  }
+                }
+  }
+
 }
