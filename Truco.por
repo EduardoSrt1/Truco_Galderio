@@ -9,11 +9,11 @@ programa {
   inteiro resultado
   inteiro sorteiomao
   inteiro cartadesejada1, cartadesejada2
-  inteiro pontuacaomaxima = 1, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0, maoplayer1 = 1, maoplayer2 = 0
+  real pontuacaomaxima = 1, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0
   inteiro rodada = 1, mao = 1
   cadeia jogador1, jogador2
   inteiro joga
-  inteiro empate = 0
+  real empate = 1.8
   funcao inicio() {
     cartas[0] = "Ás de paus"
     cartas[1] = "2 de paus"
@@ -155,21 +155,21 @@ programa {
     se (resultado > valor(confira)){
       escreva(jogador1, " ganhou a rodada!\n")
       u.aguarde (700)
-      pontuacaoArodada += 1 + (rodada - 1) / 10
-      rodada++
+      pontuacaoArodada = pontuacaoArodada + (1 - (rodada - 1) / 10)
+      rodada = rodada + 1
       joga = 1
     } senao se(resultado == valor(confira)){
-      escreva("Empate\n")
-      u.aguarde (700)
-      rodada++
-      empate++
-    } senao {
-      escreva(jogador2, " ganhou a rodada!\n")
-      u.aguarde (700)
-      pontuacaoBrodada += 1 + (rodada - 1) / 10
-      rodada++
-      joga = 2
-    }
+        escreva("Empate\n")
+        u.aguarde (700)
+        rodada = rodada + 1
+        empate = empate / 2
+      } senao {
+          escreva(jogador2, " ganhou a rodada!\n")
+          u.aguarde (700)
+          pontuacaoBrodada = pontuacaoBrodada + (1 - (rodada - 1) / 10)
+          rodada = rodada + 1
+          joga = 2
+        }
   }
   funcao maocartas (cadeia carta1, cadeia carta2, cadeia carta3) { //Design das cartas na mão do jogador
 
@@ -224,10 +224,9 @@ programa {
 
   funcao comeca () {
     joga = u.sorteia (1, 2)
-    enquanto (pontuacaoA < 12 ou pontuacaoB < 12){
       sorteio()
-        enquanto ((rodada < 4)){
-          escreva (pontuacaoArodada, pontuacaoBrodada, empate)
+        enquanto ((rodada < 4) e (pontuacaoArodada <= 1) e (pontuacaoBrodada <= 1) e (pontuacaoArodada < empate) e (pontuacaoBrodada < empate)){
+          escreva("A: ",pontuacaoArodada,"\nB: ",pontuacaoBrodada,"\nEmpate: ",empate,"\nRodada: ",rodada,"\n")
 
           se (joga == 1){
 
@@ -302,12 +301,8 @@ programa {
               compare (cartadesejada1, cartadesejada2) u.aguarde (300)
               excluirCarta (cartadesejada1, cartadesejada2)
         }
-      }
-      rodada = 1
-      empate = 0
-      pontuacaoArodada = 0
-      pontuacaoArodada = 0
     }
+      rodada = 1
   }
 
   funcao vencedorjogo (cadeia vencedor, cadeia perdedor) {
@@ -340,5 +335,4 @@ programa {
     escreva ("¦¦¦     ¦¦¦  ¦¦¦   ¦¦¦   ¦¦¦  ¦¦¦¦¦¦¦¦¦¦+¦¦¦   ¦¦¦      ¦¦¦   ¦¦+\n") u.aguarde(50)
     escreva ("+-+     +-+  +-+   +-+   +-+  +-++------++-+   +-+      +-+   +-+\n") u.aguarde(7000)
   }
-
 }
