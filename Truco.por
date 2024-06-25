@@ -9,12 +9,16 @@ programa {
   inteiro resultado
   inteiro sorteiomao
   inteiro cartadesejada1, cartadesejada2
-  inteiro pontuacaomaxima = 1, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0, maoplayer1 = 1, maoplayer2 = 0
+  real pontuacaomaxima = 1, pontuacaoA = 0, pontuacaoB = 0, pontuacaoArodada = 0, pontuacaoBrodada = 0
   inteiro rodada = 1, mao = 1
   cadeia jogador1, jogador2
   inteiro joga
+  cadeia vencedor, perdedor
+  real empate = 1.8
+  inteiro pontuacaoBrodadaMostra = 0
+  inteiro pontuacaoArodadaMostra = 0
   funcao inicio() {
-    cartas[0] = "Ás de paus"
+    cartas[0] = "Ãs de paus"
     cartas[1] = "2 de paus"
     cartas[2] = "3 de paus"
     cartas[3] = "4 de paus"
@@ -24,7 +28,7 @@ programa {
     cartas[7] = "Valete de paus"
     cartas[8] = "Cavalo de paus"
     cartas[9] = "Rei de paus"
-    cartas[10] = "Ás de copas"
+    cartas[10] = "Ãs de copas"
     cartas[11] = "2 de copas"
     cartas[12] = "3 de copas"
     cartas[13] = "4 de copas"
@@ -34,7 +38,7 @@ programa {
     cartas[17] = "Valete de copas"
     cartas[18] = "Cavalo de copas"
     cartas[19] = "Rei de copas"
-    cartas[20] = "Ás de espadas"
+    cartas[20] = "Ãs de espadas"
     cartas[21] = "2 de espadas"
     cartas[22] = "3 de espadas"
     cartas[23] = "4 de espadas"
@@ -44,7 +48,7 @@ programa {
     cartas[27] = "Valete de espadas"
     cartas[28] = "Cavalo de espadas"
     cartas[29] = "Rei de espadas"
-    cartas[30] = "Ás de ouros"
+    cartas[30] = "Ãs de ouros"
     cartas[31] = "2 de ouros"
     cartas[32] = "3 de ouros"
     cartas[33] = "4 de ouros"
@@ -58,21 +62,21 @@ programa {
     faca {
       inteiro opcaomenu // MENU DO JOGO
       limpa ()
-      escreva ("------- ¦¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+   ¦¦+ ¦¦¦¦¦¦+ ¦¦¦¦¦¦+-----------\n------- +--¦¦+--+¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+----+¦¦+---¦¦+----------\n")
+      escreva ("------- Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦+   Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦Â¦+-----------\n------- +--Â¦Â¦+--+Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦+----+Â¦Â¦+---Â¦Â¦+----------\n")
       u.aguarde (200)
-      escreva ("--------   ¦¦¦   ¦¦¦¦¦¦++¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦----------\n--------   ¦¦¦   ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦¦     ¦¦¦   ¦¦¦----------\n")
+      escreva ("--------   Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦     Â¦Â¦Â¦   Â¦Â¦Â¦----------\n--------   Â¦Â¦Â¦   Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦     Â¦Â¦Â¦   Â¦Â¦Â¦----------\n")
       u.aguarde (200)
-      escreva ("--------   ¦¦¦   ¦¦¦  ¦¦¦+¦¦¦¦¦¦+++¦¦¦¦¦¦++¦¦¦¦¦¦++----------\n---------  +-+   +-+  +-+ +-----+  +-----+ +-----+-----------\n")
+      escreva ("--------   Â¦Â¦Â¦   Â¦Â¦Â¦  Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦+++Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦Â¦Â¦Â¦++----------\n---------  +-+   +-+  +-+ +-----+  +-----+ +-----+-----------\n")
       u.aguarde (200)
-      escreva (" ¦¦¦¦¦¦+  ¦¦¦¦¦+ ¦¦+   ¦¦+¦¦¦¦¦¦+ ¦¦¦¦¦¦¦+¦¦¦¦¦¦+ ¦¦+ ¦¦¦¦¦¦+ \n¦¦+----+ ¦¦+--¦¦+¦¦¦   ¦¦¦¦¦+--¦¦+¦¦+----+¦¦+--¦¦+¦¦¦¦¦+---¦¦+\n")
+      escreva (" Â¦Â¦Â¦Â¦Â¦Â¦+  Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦+   Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦Â¦+ \nÂ¦Â¦+----+ Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦+--Â¦Â¦+Â¦Â¦+----+Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦Â¦Â¦+---Â¦Â¦+\n")
       u.aguarde (200)
-      escreva ("¦¦¦  ¦¦¦+¦¦¦¦¦¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦¦¦¦+  ¦¦¦¦¦¦++¦¦¦¦¦¦   ¦¦¦\n¦¦¦   ¦¦¦¦¦+--¦¦¦¦¦¦   ¦¦¦¦¦¦  ¦¦¦¦¦+--+  ¦¦+--¦¦+¦¦¦¦¦¦   ¦¦¦\n+¦¦¦¦¦¦++¦¦¦  ¦¦¦+¦¦¦¦¦¦++¦¦¦¦¦¦++¦¦¦¦¦¦¦+¦¦¦  ¦¦¦¦¦¦+¦¦¦¦¦¦++\n")
+      escreva ("Â¦Â¦Â¦  Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦  Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦+  Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦Â¦Â¦Â¦   Â¦Â¦Â¦\nÂ¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦+--Â¦Â¦Â¦Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦  Â¦Â¦Â¦Â¦Â¦+--+  Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦   Â¦Â¦Â¦\n+Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦  Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦Â¦Â¦Â¦++Â¦Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦Â¦  Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦++\n")
       u.aguarde(200)
       escreva (" +-----+ +-+  +-+ +-----+ +-----+ +------++-+  +-++-+ +-----+ \n")
       u.aguarde (200)
       
       escreva ("-------------------Pressione 1 para jogar!-------------------\n") u.aguarde (500) 
-      escreva ("---------------Todos os direitos reservados ©----------------\n") u.aguarde (500)
+      escreva ("---------------Todos os direitos reservados Â©----------------\n") u.aguarde (500)
       escreva ("-----Leonardo Benedetti, Eduardo Sartori e Addan Orsatto-----\n") u.aguarde (500)
       escreva ("---------------------------2024/1----------------------------\n") u.aguarde (500)
       leia (opcaomenu)
@@ -85,25 +89,20 @@ programa {
             leia (jogador2)
 
             comeca () 
-            se (pontuacaoA>pontuacaoB) {
-              vencedorjogo (jogador1, jogador2)
-            } senao {
-                vencedorjogo (jogador2, jogador1)
-              }
           pare    
           caso 0:
             escreva ("Muito obrigado! Esperaremos pelo seu retorno!")
           pare
 
           caso contrario:
-            escreva ("Comando inválido\nPressione 1 para jogar ou 0 para sair\n")
+            escreva ("Comando invÃ¡lido\nPressione 1 para jogar ou 0 para sair\n")
           pare
           compare(confira, resultado)
       }
     } enquanto (opcaomenu!=0)
   }
 
-  funcao sorteio(){ //Sorteia cartas das mãos dos jogadores nas mãos
+  funcao sorteio(){ //Sorteia cartas das mÃ£os dos jogadores nas mÃ£os
     para (inteiro i = 0; i < 6; i++){
       faca{
         aux = u.sorteia(0, 39)
@@ -154,24 +153,26 @@ programa {
     se (resultado > valor(confira)){
       escreva(jogador1, " ganhou a rodada!\n")
       u.aguarde (700)
-      pontuacaoArodada++
-      pontuacaoArodada - ((rodada - 1) / 10)
-      rodada++
+      pontuacaoArodada = pontuacaoArodada + (1 - (rodada - 1) / 10)
+      rodada = rodada + 1
       joga = 1
     } senao se(resultado == valor(confira)){
         escreva("Empate\n")
         u.aguarde (700)
-        rodada++
+        rodada = rodada + 1
+        empate = empate / 2
       } senao {
           escreva(jogador2, " ganhou a rodada!\n")
           u.aguarde (700)
-          pontuacaoBrodada++
-          pontuacaoBrodada - ((rodada - 1) / 10)
-          rodada++
+          pontuacaoBrodada = pontuacaoBrodada + (1 - (rodada - 1) / 10)
+          rodada = rodada + 1
           joga = 2
         }
   }
-  funcao maocartas (cadeia carta1, cadeia carta2, cadeia carta3) { //Design das cartas na mão do jogador
+  funcao maocartas (cadeia carta1, cadeia carta2, cadeia carta3) { //Design das cartas na mÃ£o do jogador
+
+  pontuacaoArodadaMostra = pontuacaoArodada
+  pontuacaoBrodadaMostra = pontuacaoBrodada
 
         escreva ("\n????????????????????????????????????????????????????????????????????????????????????????????????????\n")
         escreva ("????????????????????????????????????????????????????????????????????????????????????????????????????\n")
@@ -207,13 +208,13 @@ programa {
         escreva ("???????????*?/././)))))))))))))))))))))####*****************************????????????????????????????\n")
         escreva ("**?????????*))/))))))))))###########)**************************?????????????????????????????????????\n")
         escreva ("***********/)/))))))))########%#/.***********???????????????????????????????????????????????????????\n")
-        escreva ("***?******)))))))))))#######)/././.***********??????????????????????????????????????????????????????    Mão atual: ", mao, "\n")  
+        escreva ("***?******)))))))))))#######)/././.***********??????????????????????????????????????????????????????    MÃ£o atual: ", mao, "\n")  
         escreva ("*********))))))))/./))#####/./.**************???????????????????????????????????????????????????????    Rodada atual: ", rodada, "\n") 
         escreva ("***?***))))))))))))#####***************?????????????????????????????????????????????????????????????\n")
-        escreva ("*****)))))))))))))####/.************????????????????????????????????????????????????????????????????    Pontuação ", jogador1, " na rodada: ", pontuacaoArodada, "\n") 
-        escreva ("***/)))))))))))))####************???????????????????????????????????????????????????????????????????    Pontuação ", jogador2, " na rodada: ", pontuacaoBrodada, "\n") 
-        escreva ("**)))))))))))))#####**********??????????????????????????????????????????????????????????????????????    Pontuação ", jogador1, ": ", pontuacaoA, "\n") 
-        escreva ("))))))))))))))#####********?????????????????????????????????????????????????????????????????????????    Pontuação ", jogador2, ": ", pontuacaoB, "\n") 
+        escreva ("*****)))))))))))))####/.************????????????????????????????????????????????????????????????????    PontuaÃ§Ã£o ", jogador1, " na rodada: ", pontuacaoArodadaMostra, "\n") 
+        escreva ("***/)))))))))))))####************???????????????????????????????????????????????????????????????????    PontuaÃ§Ã£o ", jogador2, " na rodada: ", pontuacaoBrodadaMostra, "\n") 
+        escreva ("**)))))))))))))#####**********??????????????????????????????????????????????????????????????????????    PontuaÃ§Ã£o ", jogador1, ": ", pontuacaoA, "\n") 
+        escreva ("))))))))))))))#####********?????????????????????????????????????????????????????????????????????????    PontuaÃ§Ã£o ", jogador2, ": ", pontuacaoB, "\n") 
 
   }
 
@@ -223,90 +224,109 @@ programa {
   }
 
   funcao comeca () {
-    joga = u.sorteia (1, 2)
-    enquanto (pontuacaoA < 12 e pontuacaoB < 12){
-      sorteio()
-        enquanto ((rodada < 4) ou (pontuacaoArodada < 1) ou (pontuacaoBrodada < 1) ou (pontuacaoArodada < 0 e rodada == 3) ou (pontuacaoBrodada < 0 e rodada == 3)){
+    enquanto(pontuacaoA < 12 e pontuacaoB < 12){
+      joga = u.sorteia (1, 2)
+        sorteio()
+          enquanto ((rodada < 4) e (pontuacaoArodada <= 1) e (pontuacaoBrodada <= 1) e (pontuacaoArodada < empate) e (pontuacaoBrodada < empate)){
 
-          se (joga == 1){
+            se (joga == 1){
 
-            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-            faca{
-              escreva (jogador1, ", qual carta você deseja jogar? \n")
-              se (mao1[0] != 40){
-                escreva ("1: ", cartas[mao1[0]]," ",valor(mao1[0]),"\n")
-              }
-              se (mao1[1] != 40){
-                escreva ("2: ", cartas[mao1[1]]," ",valor(mao1[1]),"\n")
-              }
-              se (mao1[2] != 40){
-                escreva ("3: ", cartas[mao1[2]]," ",valor(mao1[2]),"\n")
-              }
-              leia(cartadesejada1)
-            } enquanto (mao1[cartadesejada1 - 1] == 40)
+              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+              faca{
+                escreva (jogador1, ", qual carta vocÃª deseja jogar? \n")
+                se (mao1[0] != 40){
+                  escreva ("1: ", cartas[mao1[0]]," ",valor(mao1[0]),"\n")
+                }
+                se (mao1[1] != 40){
+                  escreva ("2: ", cartas[mao1[1]]," ",valor(mao1[1]),"\n")
+                }
+                se (mao1[2] != 40){
+                  escreva ("3: ", cartas[mao1[2]]," ",valor(mao1[2]),"\n")
+                }
+                leia(cartadesejada1)
+              } enquanto (mao1[cartadesejada1 - 1] == 40)
 
-            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-            faca{
-              escreva (jogador2, ", qual carta você deseja jogar? \n")
-              se (mao2[0] != 40){
-                escreva ("1: ", cartas[mao2[0]]," ",valor(mao2[0]),"\n")
-              }
-              se (mao2[1] != 40){
-                escreva ("2: ", cartas[mao2[1]]," ",valor(mao2[1]),"\n")
-              }
-              se (mao2[2] != 40){
-                escreva ("3: ", cartas[mao2[2]]," ",valor(mao2[2]),"\n")
-              }
-              escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
-              leia (cartadesejada2)
-            } enquanto (mao2[cartadesejada2 - 1] == 40)
+              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+              faca{
+                escreva (jogador2, ", qual carta vocÃª deseja jogar? \n")
+                se (mao2[0] != 40){
+                  escreva ("1: ", cartas[mao2[0]]," ",valor(mao2[0]),"\n")
+                }
+                se (mao2[1] != 40){
+                  escreva ("2: ", cartas[mao2[1]]," ",valor(mao2[1]),"\n")
+                }
+                se (mao2[2] != 40){
+                  escreva ("3: ", cartas[mao2[2]]," ",valor(mao2[2]),"\n")
+                }
+                escreva ("Carta jogada pelo oponente: ", cartas[mao1[cartadesejada1-1]], " (", valor(mao1[cartadesejada1-1]), ")\n")
+                leia (cartadesejada2)
+              } enquanto (mao2[cartadesejada2 - 1] == 40)
 
-              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-              excluirCarta (cartadesejada1, cartadesejada2)
+                compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+                excluirCarta (cartadesejada1, cartadesejada2)
 
-          }senao {
+            }senao {
 
-            maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
-            faca{
-              escreva (jogador2, ", qual carta você deseja jogar? \n")
-              se (mao2[0] != 40){
-                escreva ("1: ", cartas[mao2[0]]," ",valor(mao2[0]),"\n")
-              }
-              se (mao2[1] != 40){
-                escreva ("2: ", cartas[mao2[1]]," ",valor(mao2[1]),"\n")
-              }
-              se (mao2[2] != 40){
-                escreva ("3: ", cartas[mao2[2]]," ",valor(mao2[2]),"\n")
-              }
-              leia (cartadesejada2)
-            } enquanto (mao2[cartadesejada2 - 1] == 40)
+              maocartas (cartas[mao2[0]], cartas[mao2[1]], cartas[mao2[2]])
+              faca{
+                escreva (jogador2, ", qual carta vocÃª deseja jogar? \n")
+                se (mao2[0] != 40){
+                  escreva ("1: ", cartas[mao2[0]]," ",valor(mao2[0]),"\n")
+                }
+                se (mao2[1] != 40){
+                  escreva ("2: ", cartas[mao2[1]]," ",valor(mao2[1]),"\n")
+                }
+                se (mao2[2] != 40){
+                  escreva ("3: ", cartas[mao2[2]]," ",valor(mao2[2]),"\n")
+                }
+                leia (cartadesejada2)
+              } enquanto (mao2[cartadesejada2 - 1] == 40)
 
 
-            maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
-            faca{
-              escreva (jogador1, ", qual carta você deseja jogar? \n")
-              se (mao1[0] != 40){
-                escreva ("1: ", cartas[mao1[0]]," ",valor(mao1[0]),"\n")
-              }
-              se (mao1[1] != 40){
-                escreva ("2: ", cartas[mao1[1]]," ",valor(mao1[1]),"\n")
-              }
-              se (mao1[2] != 40){
-                escreva ("3: ", cartas[mao1[2]]," ",valor(mao1[2]),"\n")
-              }
-              escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
-              leia(cartadesejada1)
-            } enquanto (mao1[cartadesejada1 - 1] == 40)
+              maocartas (cartas[mao1[0]], cartas[mao1[1]], cartas[mao1[2]])
+              faca{
+                escreva (jogador1, ", qual carta vocÃª deseja jogar? \n")
+                se (mao1[0] != 40){
+                  escreva ("1: ", cartas[mao1[0]]," ",valor(mao1[0]),"\n")
+                }
+                se (mao1[1] != 40){
+                  escreva ("2: ", cartas[mao1[1]]," ",valor(mao1[1]),"\n")
+                }
+                se (mao1[2] != 40){
+                  escreva ("3: ", cartas[mao1[2]]," ",valor(mao1[2]),"\n")
+                }
+                escreva ("Carta jogada pelo oponente: ", cartas[mao2[cartadesejada2-1]], " (", valor(mao2[cartadesejada2-1]), ")\n")
+                leia(cartadesejada1)
+              } enquanto (mao1[cartadesejada1 - 1] == 40)
 
-              compare (cartadesejada1, cartadesejada2) u.aguarde (300)
-              excluirCarta (cartadesejada1, cartadesejada2)
-        }
+                compare (cartadesejada1, cartadesejada2) u.aguarde (300)
+                excluirCarta (cartadesejada1, cartadesejada2)
+          }
       }
+      se (pontuacaoArodada > pontuacaoBrodada){
+        pontuacaoA ++
+      }senao se (pontuacaoArodada < pontuacaoBrodada){
+        pontuacaoB++
+      }senao{
+
+      }
+      pontuacaoArodada = 0
+      pontuacaoBrodada = 0
       rodada = 1
+      empate = 1.8
     }
+    vencedorjogo()
   }
 
-  funcao vencedorjogo (cadeia vencedor, cadeia perdedor) {
+  funcao vencedorjogo () {
+    se (pontuacaoA > pontuacaoB){
+        vencedor = jogador1
+        perdedor = jogador2
+      }senao{
+        vencedor = jogador2
+        perdedor = jogador1
+      }
+
     u.aguarde (1000)
     escreva (vencedor, "           ", perdedor, "\n")
     escreva("?????????????????????????????\n")
@@ -329,12 +349,11 @@ programa {
     escreva (vencedor, " deu uma surra em ", perdedor, "!\n") u.aguarde (2500)
     escreva ("Se eu fosse o ", perdedor, " nunca mais sairia de casa") u.aguarde (1000)
     escreva (".") u.aguarde (1000) escreva (".") u.aguarde (1000) escreva (".\n\n") u.aguarde (1000)
-    escreva ("¦¦¦¦¦¦¦+ ¦¦¦¦¦+ ¦¦¦¦¦¦¦¦+ ¦¦¦¦¦+ ¦¦+     ¦¦+¦¦¦¦¦¦¦¦+¦¦+   ¦¦+¦¦+\n") u.aguarde(50)
-    escreva ("¦¦+----+¦¦+--¦¦++--¦¦+--+¦¦+--¦¦+¦¦¦     ¦¦¦+--¦¦+--++¦¦+ ¦¦++¦¦¦\n") u.aguarde(50)
-    escreva ("¦¦¦¦¦+  ¦¦¦¦¦¦¦¦   ¦¦¦   ¦¦¦¦¦¦¦¦¦¦¦     ¦¦¦   ¦¦¦    +¦¦¦¦++ ¦¦¦\n") u.aguarde(50)
-    escreva ("¦¦+--+  ¦¦+--¦¦¦   ¦¦¦   ¦¦+--¦¦¦¦¦¦     ¦¦¦   ¦¦¦     +¦¦++  +-+\n") u.aguarde(50)
-    escreva ("¦¦¦     ¦¦¦  ¦¦¦   ¦¦¦   ¦¦¦  ¦¦¦¦¦¦¦¦¦¦+¦¦¦   ¦¦¦      ¦¦¦   ¦¦+\n") u.aguarde(50)
+    escreva ("Â¦Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦Â¦Â¦Â¦+ Â¦Â¦+     Â¦Â¦+Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦+   Â¦Â¦+Â¦Â¦+\n") u.aguarde(50)
+    escreva ("Â¦Â¦+----+Â¦Â¦+--Â¦Â¦++--Â¦Â¦+--+Â¦Â¦+--Â¦Â¦+Â¦Â¦Â¦     Â¦Â¦Â¦+--Â¦Â¦+--++Â¦Â¦+ Â¦Â¦++Â¦Â¦Â¦\n") u.aguarde(50)
+    escreva ("Â¦Â¦Â¦Â¦Â¦+  Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦   Â¦Â¦Â¦   Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦     Â¦Â¦Â¦   Â¦Â¦Â¦    +Â¦Â¦Â¦Â¦++ Â¦Â¦Â¦\n") u.aguarde(50)
+    escreva ("Â¦Â¦+--+  Â¦Â¦+--Â¦Â¦Â¦   Â¦Â¦Â¦   Â¦Â¦+--Â¦Â¦Â¦Â¦Â¦Â¦     Â¦Â¦Â¦   Â¦Â¦Â¦     +Â¦Â¦++  +-+\n") u.aguarde(50)
+    escreva ("Â¦Â¦Â¦     Â¦Â¦Â¦  Â¦Â¦Â¦   Â¦Â¦Â¦   Â¦Â¦Â¦  Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦Â¦+Â¦Â¦Â¦   Â¦Â¦Â¦      Â¦Â¦Â¦   Â¦Â¦+\n") u.aguarde(50)
     escreva ("+-+     +-+  +-+   +-+   +-+  +-++------++-+   +-+      +-+   +-+\n") u.aguarde(7000)
   }
-
 }
